@@ -2,7 +2,11 @@ import React, { Component } from "react";
 
 class Header extends Component {
     render(){
-        return <div className="header"><h1>Hi There Theree</h1></div>
+        return (
+            <div className="header">
+                <img src='http://via.placeholder.com/50x50'/>
+            </div>
+        )
     }
 }
 export default Header;
