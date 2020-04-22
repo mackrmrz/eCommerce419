@@ -1,17 +1,23 @@
 import React, { Component } from "react";
-import { reduxForm, Field} from "redux-form";
+import SigninForm from "./signinForm";
+import PageTitle from "../pageTitle";
+
+
 
 class Signin extends Component {
+    
+    onSubmit= (feilds) => {
+        console.log(feilds);
+    }
     render(){
         return(
             <div className="signin">
-                <h2>Hi Mom</h2>
+                <PageTitle className="signin__page-title" title="Login" />
+               <SigninForm onSubmit={this.onSubmit} className="signin__form"/>
             </div>
         )
     }
 }
 
-Signin = reduxForm({
-    form: "Signin"
-})(Signin);
+
 export default Signin;
