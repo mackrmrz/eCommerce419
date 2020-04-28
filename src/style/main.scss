@@ -11,9 +11,15 @@ html {
 }
 
 
+body {
+    font-family: "Open Sans";
+    color: #808080;
+}
+
 @import 'layout';
 @import 'headerNavBar';
 @import 'page-title';
 @import 'auth/signin';
 @import 'auth/signup';
-
+@import 'form-fields';
+@import 'details';

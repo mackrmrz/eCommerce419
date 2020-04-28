@@ -2,14 +2,35 @@ import React, { Component } from "react";
 import {reduxForm, Field } from "redux-form";
 
 import {FormInput, FormButton} from '../formFields';
+import Detail from "../details";
+import history from "../../history";
+
 
 class SigninForm extends Component {
     render(){
         const {className, handleSubmit} = this.props;
+        const links = [
+            {
+                _id: 0,
+                title: 'Not registered? Create an account here',
+                onClick: () => history.push('/signup')
+            },
+            {
+                _id: 1,
+                title: 'Fogot account email',
+                onClick: () => console.log('forgot email')
+            },
+            {
+                _id: 2,
+                title: 'Not registered? Create an account here',
+                onClick: () => console.log('forgot password')
+            }
+        ]
+
         return (
             <form onSubmit={handleSubmit} className={`${className} signin-form`}>
 
-                <Field className= 'sign-in-form__email' 
+                <Field className= 'signin-form__email' 
                     type= 'email'
                     title='Email'
                     placeholder='Email'
@@ -17,7 +38,7 @@ class SigninForm extends Component {
                     component={FormInput}
                 />
 
-                <Field className= 'sign-in-form__password' 
+                <Field className= 'signin-form__password' 
                     type= 'password'
                     title='Password'
                     placeholder='Password'
@@ -25,13 +46,16 @@ class SigninForm extends Component {
                     component={FormInput}
                 />
 
-                <Field className= 'sign-in-form__login' 
+                <div className='signin-form__line'></div>
+
+                <Field className= 'signin-form__login' 
                     onClick={()=> console.log("hit")}
                     type= 'submit'
                     title='Login'
                     name='login'
                     component={FormButton}
                 />
+                <Detail className="signin-form__details" title="QuickLinks" links={links}/>
             </form>
         )
     }
