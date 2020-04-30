@@ -8,7 +8,7 @@ class Details extends Component {
         let children = [];
         if (links) {
             children = links.map(link => {
-                return <a key={links._id} onClick={link.onClick} className='details__links'>{link.title}</a>
+                return <a key={link._id} onClick={link.onClick} className='details__links'>{link.title}</a>
             })
         }else if (info) {
             children = info.map(item => {

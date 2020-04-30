@@ -3,7 +3,15 @@ import React, { Component } from "react";
 import SignupForm from './signupForm';
 import Pagetitle from '../pageTitle';
 
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
+
 class Signup extends Component {
+
+    componentDidMount() {
+        this.props.setHeaderLinks([]);
+        this.props.setNavbarLinks([]);
+    }
 
     onSubmit = (fields) => {
         console.log(fields);
