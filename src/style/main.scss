@@ -23,3 +23,7 @@ body {
 @import 'auth/signup';
 @import 'form-fields';
 @import 'details';
+
+@import 'account/account-information.scss';
+@import 'account/account';
+@import 'account/purchase-history.scss';

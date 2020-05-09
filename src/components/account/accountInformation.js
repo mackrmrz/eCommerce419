@@ -1,14 +1,23 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+
+import PageTitle from '../pageTitle';
+import AccountInformationForm from './accountInformationForm';
+
+class AccountInformation extends Component {
+
+    onSubmit = (fields) => {
+        console.log(fields);
+    }
 
 
-class AccountInfo extends Component {
     render() {
         return (
-            <div className='account-info'>
-                <h1>Account Information</h1>
+            <div className='account-information'>
+                <PageTitle className='acccount-information' title='Account Information' />
+                <AccountInformationForm onSubmit={this.onSubmit} className='account-information__form'/>
             </div>
         )
     }
 }
 
-export default AccountInfo;
+export default AccountInformation;
