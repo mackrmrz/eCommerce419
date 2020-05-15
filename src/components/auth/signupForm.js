@@ -32,18 +32,21 @@ class SignupForm extends Component {
                 placeholder='Name'
                 name='name'
                 component={FormInput}/>
+
                 <Field className='sign-up-form__email'
                 type='email'
                 title='Email'
                 placeholder='Email'
                 name='email'
                 component={FormInput}/>
+
                 <Field className='sign-up-form__password'
                 type='password'
                 title='Password'
                 placeholder='Password'
                 name='password'
                 component={FormInput}/>
+
                 <Field className='sign-up-form__confirm'
                 type='password'
                 title='Confirm Password'
@@ -59,6 +62,7 @@ class SignupForm extends Component {
                 title='Create Account'
                 name='login'
                 component={FormButton}/>
+                
                 <Field className='sign-up-form__back'
                 onClick={() => history.push('/signin')}
                 type='button'

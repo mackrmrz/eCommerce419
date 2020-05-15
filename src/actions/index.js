@@ -10,6 +10,10 @@ import {
     setPurchaseDetail
 } from './usersAction';
 
+import {
+    fetchingShopProducts
+} from './shopAction';
+
 
 
 export {
@@ -18,5 +22,7 @@ export {
     changeNavbarActive,
     
     fetchUsersPurchases,
-    setPurchaseDetail
+    setPurchaseDetail,
+
+    fetchingShopProducts
 }

@@ -1,0 +1,34 @@
+import { SET_NAVBAR_LINKS } from './types';
+
+
+export function fetchingShopProducts() {
+    return({
+        type: SET_NAVBAR_LINKS,
+        payload: [
+            {
+                _id: 0,
+                title: 'All'
+            },
+            {
+                _id: 1,
+                title: 'JavaScript'
+            },
+            {
+                _id: 2,
+                title: "UI/UX"
+            },
+            {
+                _id: 3,
+                title: 'Python'
+            },
+            {
+                _id: 4,
+                title: 'Linux'
+            },
+            {
+                _id: 5,
+                title: 'UML'
+            }
+        ]
+    })
+}
