@@ -1,9 +1,19 @@
-import { SET_NAVBAR_LINKS } from './types';
+import {  
+    SET_SHOP_CATEGORIES,
+    SET_SHOP_PRODUCTS,
+    FILTER_PRODUCTS_WITH_CATEGORY_ID 
+} from './types';
 
-
-export function fetchingShopProducts() {
+export function filterProductsWithCategoryId(_id) {
     return({
-        type: SET_NAVBAR_LINKS,
+        type: FILTER_PRODUCTS_WITH_CATEGORY_ID,
+        payload: _id
+    })
+}
+
+export function fetchShopCategories() {
+    return({
+        type: SET_SHOP_CATEGORIES,
         payload: [
             {
                 _id: 0,
@@ -32,3 +42,56 @@ export function fetchingShopProducts() {
         ]
     })
 }
+
+
+export function fetchShopProducts() {
+    return({
+        type: SET_SHOP_PRODUCTS,
+        payload: [
+            {
+                _id: 0,
+                title: 'Javascript in the browser',
+                description: 'The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. ... The running speed starts slowly, but gets faster each minute after you hear this signal.',
+                price: 1.99,
+                belongsTo: [0, 1]
+            },
+            {
+                _id: 1,
+                title: 'Graph Database',
+                description: 'The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. ... The running speed starts slowly, but gets faster each minute after you hear this signal.',
+                price: 1.00,
+                belongsTo: [0, 6]
+            },
+            {
+                _id: 2,
+                title: "Full Stack Development",
+                description: 'The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. ... The running speed starts slowly, but gets faster each minute after you hear this signal.',
+                price: 1.00,
+                belongsTo: [0, 1, 4]
+            },
+            {
+                _id: 3,
+                title: 'User Interface Design',
+                description: 'The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. ... The running speed starts slowly, but gets faster each minute after you hear this signal.',
+                price: 1.00,
+                belongsTo: [3, 2]
+            },
+            {
+                _id: 4,
+                title: 'Javascript  Development',
+                description: 'The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. ... The running speed starts slowly, but gets faster each minute after you hear this signal.',
+                price: 1.00,
+                belongsTo: [3, 1]
+            },
+            {
+                _id: 5,
+                title: 'Use Experience Design',
+                description: 'The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. ... The running speed starts slowly, but gets faster each minute after you hear this signal.',
+                price: 1.00,
+                belongsTo: [0, 6]
+            }
+        ]
+    })
+}
+
+
