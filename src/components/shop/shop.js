@@ -4,18 +4,26 @@ import * as actions from '../../actions';
 
 //COMPONENT 
 import ShopSearchBar from './shopSearchBar';
+import ShopProduct from './shopProduct';
+import ShopCart from './shopCart';
 
 class Shop extends Component {
+    constructor() {
+        super()
+        
+        this.state= {
+            showCart: true
+        }
+    }
 
     componentDidMount(){
         const headerLinks = 
-        //axios to the backend
         [
             {
                 _id: 0,
                 title: 'Login',
                 path: '/signin'
-            }
+            },
         ]
         this.props.setHeaderLinks(headerLinks);
         this.props.fetchShopCategories();
@@ -34,32 +42,31 @@ class Shop extends Component {
     }
 
     onSubmit = (fields) => {
-        console.log(fields);
+        this.props.filterProductsWithQuery(fields);
     }
 
     render() {
+        // return <ShopCart className='shop-cart'/>
+
+
         return (
+            
             <div className='shop'>
-                <h1>Hi THerere</h1>
                  <ShopSearchBar onSubmit={this.onSubmit} className='shop__search-bar'/>
                <div className='shop__products'>
                    {
                        this.props.filteredProducts.map(product => {
                            return (
-                               <div key={product._id} className='shop-product'>
-                                   <div className='shop-product__title'>
-                                       {product.title}
-                                   </div>
-                                   <div className='shop-product__description'>
-                                       {product.description}
-                                   </div>
-                               </div>
-
+                              <ShopProduct {...product} key={product._id} />
                            )
                        })
                    }
                </div>
-                {/* shop cart button */}
+               <ShopCart className='shop-cart'/>
+                {/* {
+                        this.state.showCart ? <ShopCart className='shop__cart'/> : ' '
+                } */}
+                   
             </div>
         )
     }

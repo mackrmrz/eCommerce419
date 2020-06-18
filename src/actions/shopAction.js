@@ -1,9 +1,16 @@
 import {  
     SET_SHOP_CATEGORIES,
     SET_SHOP_PRODUCTS,
-    FILTER_PRODUCTS_WITH_CATEGORY_ID 
+    FILTER_PRODUCTS_WITH_CATEGORY_ID, 
+    FILTER_PRODUCTS_WITH_QUERY
 } from './types';
 
+export function filterProductsWithQuery(fields) {
+    return({
+        type: FILTER_PRODUCTS_WITH_QUERY,
+        payload: fields
+    })
+}
 export function filterProductsWithCategoryId(_id) {
     return({
         type: FILTER_PRODUCTS_WITH_CATEGORY_ID,
@@ -60,21 +67,21 @@ export function fetchShopProducts() {
                 title: 'Graph Database',
                 description: 'The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. ... The running speed starts slowly, but gets faster each minute after you hear this signal.',
                 price: 1.00,
-                belongsTo: [0, 6]
+                belongsTo: [0, 3, 6]
             },
             {
                 _id: 2,
                 title: "Full Stack Development",
                 description: 'The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. ... The running speed starts slowly, but gets faster each minute after you hear this signal.',
                 price: 1.00,
-                belongsTo: [0, 1, 4]
+                belongsTo: [0, 3, 1, 4]
             },
             {
                 _id: 3,
                 title: 'User Interface Design',
                 description: 'The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. ... The running speed starts slowly, but gets faster each minute after you hear this signal.',
                 price: 1.00,
-                belongsTo: [3, 2]
+                belongsTo: [0, 2]
             },
             {
                 _id: 4,

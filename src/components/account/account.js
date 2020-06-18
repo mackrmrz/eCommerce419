@@ -35,7 +35,7 @@ class Account extends Component {
                 component: <AccountInfomation/>
             }
         ]
-        this.props.setHeaderLinks([headerLinks]);
+        this.props.setHeaderLinks(headerLinks);
         this.props.setNavbarLinks(navbarLinks);
     }
 
