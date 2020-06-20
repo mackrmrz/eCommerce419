@@ -57,15 +57,15 @@ class Shop extends Component {
                    {
                        this.props.filteredProducts.map(product => {
                            return (
-                              <ShopProduct {...product} key={product._id} />
+                              <ShopProduct {...product} />
                            )
                        })
                    }
                </div>
-               <ShopCart className='shop-cart'/>
-                {/* {
+               {/* <ShopCart className='shop__cart'/> */}
+                {
                         this.state.showCart ? <ShopCart className='shop__cart'/> : ' '
-                } */}
+                }
                    
             </div>
         )

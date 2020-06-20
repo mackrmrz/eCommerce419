@@ -6,6 +6,7 @@ import {
 
 
 import {
+    fetchCartProduct,
     fetchUsersPurchases,
     setPurchaseDetail
 } from './usersAction';
@@ -24,6 +25,7 @@ export {
     setNavbarLinks,
     changeNavbarActive,
     
+    fetchCartProduct,
     fetchUsersPurchases,
     setPurchaseDetail,
 
