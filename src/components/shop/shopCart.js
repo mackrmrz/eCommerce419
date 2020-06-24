@@ -5,24 +5,19 @@ import * as actions from '../../actions';
 
 
 import CartProduct from './cartProduct';
+import CartButton from './cartButton';
 
-const CartButton = ({className, icon}) => {
-    return (
-        <div className={`${className} cart-button`}>
-            <i className={icon}/>        
-        </div>
-    )
-}
+import history from '../../history';
 
-const CartContent = ({className, products}) => {
+function CartContent({className, products}) {
     let count = products.length;
     let productsJSX = products.map(product => <CartProduct {...product} key={product._id}/>);
-    return(
+    return (
         <div className={`${className} cart-content`}>
             <div className='cart-content__title'>
                 Cart ({count})
             </div>
-            <div className='cart-content__product'>
+            <div className='cart-content__products'>
                 {productsJSX}
             </div>
             <CartFooter className='cart-content__footer' products={products}/>
@@ -34,7 +29,7 @@ const CartFooter = ({className, products}) => {
     const price = 7.96;
     return(
         <div className={`${className} clart-footer`}>
-            <a className='cart-footer__checkout'>
+            <a onClick={() => history.push('/order/review')} className='cart-footer__checkout'>
                 checkout
             </a>
             <div className='cart-footer__subtotal'>
@@ -51,21 +46,29 @@ class ShopCart extends Component {
     componentDidMount() {
         this.props.fetchCartProduct();
     }
+
+    handleAddToCart = () => {
+        if(document.getElementById('shop-cart').classList.contains('cart-hidden')){
+            document.getElementById('shop-cart').classList.remove('cart-hidden')
+        }else {
+            document.getElementById('shop-cart').classList.add('cart-hidden')
+        }
+    }
     render() {
         const { className } = this.props;
         return(
-            <div className={`${className} shop-cart`}>
-                <CartButton className='shop-cart__toggle' icon='fas fas-times'/>
-                <CartContent className='shop-cart__content' products={this.props.cartProduct}/>
+            <div id='shop-cart' className={`${className} shop-cart cart-hidden`}>
+                <CartButton className='shop-cart__toggle' icon='fas fas-times' onClick={this.handleAddToCart}/>
+                <CartContent className='shop-cart__content' products={this.props.cartProducts}/>
             </div>
         )
     }
 }
 
 function mapStateToProps(state) {
-    const { cartProduct } = state.user;
+    const { cartProducts } = state.user;
     return {
-        cartProduct
+        cartProducts
     }
 }
 

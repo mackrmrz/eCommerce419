@@ -14,6 +14,11 @@ html {
 body {
     font-family: "Open Sans";
     color: #808080;
+    //Smooting the HTML in the browser
+    -webkit-font-smooting: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: transparent;
 }
 
 @import 'layout';
@@ -43,3 +48,6 @@ body {
 //Quantity
 @import 'quantity';
 @import 'green-price-tag.scss';
+
+//REVIEW
+@import 'order/review.scss';
